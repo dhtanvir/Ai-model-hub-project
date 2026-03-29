@@ -1,12 +1,11 @@
-import React from 'react';
-import logo from '../../assets/logo.png'
-import { FaDiscord, FaGithub, FaLinkedin,  FaYoutube } from 'react-icons/fa';
+import React from "react";
+import logo from "../../assets/logo.png";
+import { FaDiscord, FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
+import NavLink from "../NavBar/NavLink";
 
-
-
-const Footer = () => {
-    return (
-            <footer className="bg-zinc-950 border-t border-red-900/50 pt-16 pb-10">
+const Footer = ({ menuData }) => {
+  return (
+    <footer className="bg-zinc-950 border-t border-red-900/50 pt-16 pb-10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           {/* Logo & Description */}
@@ -24,12 +23,19 @@ const Footer = () => {
             </p>
 
             <div className="mt-8 flex gap-6 text-2xl text-zinc-500">
-                            
-                            <a href="#" className="hover:text-red-500 transition-colors"><FaGithub /></a>
-                            <a href="#" className="hover:text-red-500 transition-colors"><FaLinkedin /></a>
-                            <a href="#" className="hover:text-red-500 transition-colors"><FaDiscord /></a>
-                            <a href="#" className="hover:text-red-500 transition-colors"><FaYoutube /></a>
-                        </div>
+              <a href="#" className="hover:text-red-500 transition-colors">
+                <FaGithub />
+              </a>
+              <a href="#" className="hover:text-red-500 transition-colors">
+                <FaLinkedin />
+              </a>
+              <a href="#" className="hover:text-red-500 transition-colors">
+                <FaDiscord />
+              </a>
+              <a href="#" className="hover:text-red-500 transition-colors">
+                <FaYoutube />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -62,26 +68,9 @@ const Footer = () => {
           <div className="md:col-span-2">
             <h3 className="text-red-400 font-semibold mb-6 text-lg">Company</h3>
             <ul className="space-y-4 text-zinc-400">
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  Contact
-                </a>
-              </li>
+              {menuData.map((nav) => (
+                <NavLink key={nav.id} nav={nav} />
+              ))}
             </ul>
           </div>
 
@@ -119,7 +108,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-    );
+  );
 };
 
 export default Footer;
