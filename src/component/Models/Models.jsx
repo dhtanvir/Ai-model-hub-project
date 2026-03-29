@@ -4,7 +4,7 @@ import ModelsCard from "./ModelsCard";
 const Models = ({ modelsPromise, Cards, setCards }) => {
   const getModels = use(modelsPromise);
 
-  //   console.log(getModels);
+ 
 
   return (
     <div className="container mx-auto space-y-5 py-10">

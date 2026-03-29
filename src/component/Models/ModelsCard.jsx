@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 const ModelsCard = ({ model, Cards, setCards }) => {
-  // const { title, description,image  } = model;
+ 
 
   const [isSubscribed, setIsSubscribed] = useState(false);
 

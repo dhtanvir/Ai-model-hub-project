@@ -2,10 +2,10 @@ import React from "react";
 import { MdDelete } from "react-icons/md";
 import { toast } from "react-toastify";
 
-const Card = ({ Cards, setCards }) => {
-  //   console.log(Cards);
+const CardsDetails = ({ Cards, setCards }) => {
+
   const totalPrice = Cards.reduce((sum, card) => sum + card.price, 0);
-  // console.log(totalPrice);
+  
 
   const handleCheckOut = () => {
     setCards([]);
@@ -28,7 +28,7 @@ const Card = ({ Cards, setCards }) => {
           <h1 className=" text-2xl text-center"> No Cards Available </h1>
         ) : (
           <>
-            {/* card */}
+           
             <div>
               {Cards.map((card) => (
                 <div key={card.id}>
@@ -62,7 +62,7 @@ const Card = ({ Cards, setCards }) => {
                   </div>
                 </div>
               ))}
-              {/* Total */}
+          
               <div className="w-full bg-black rounded-2xl flex items-center justify-between gap-5 px-5 py-5  mt-8">
                 <h4 className="text-2xl font-bold text-amber-50 ">Total</h4>
                 <h4 className="text-2xl font-bold text-red-400">
@@ -83,4 +83,4 @@ const Card = ({ Cards, setCards }) => {
   );
 };
 
-export default Card;
+export default CardsDetails;

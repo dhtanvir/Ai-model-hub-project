@@ -4,7 +4,8 @@ import Banner from "./component/Banner/Banner";
 import Footer from "./component/Footer/Footer";
 import Navbar from "./component/NavBar/Navbar";
 import Models from "./component/Models/Models";
-import Card from "./component/Models/card";
+import CardsDetails from "./component/Models/CardsDetails";
+
 
 const getModelsData = async () => {
   const res = await fetch("/models.json");
@@ -71,7 +72,7 @@ function App() {
           ) : null}
 
           {activeTab === "card" ? (
-            <Card Cards={Cards} setCards={setCards} />
+            <CardsDetails Cards={Cards} setCards={setCards} />
           ) : null}
         </Suspense>
       </main>
