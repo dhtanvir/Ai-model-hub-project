@@ -1,12 +1,24 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
-const ModelsCard = ({ model }) => {
+const ModelsCard = ({ model, Cards, setCards }) => {
   // const { title, description,image  } = model;
 
   const [isSubscribed, setIsSubscribed] = useState(false);
 
   const handleSubscribe = () => {
     setIsSubscribed(true);
+
+    const isAlreadySubscribed = Cards.find((card) => card.id === model.id);
+
+    if (isAlreadySubscribed) {
+      toast.warning(" You have already Subscribed to this model!");
+      return;
+    }
+
+    setCards([...Cards, model]);
+
+    toast.success(" Subscribed Successfully!");
   };
 
   return (
@@ -26,7 +38,7 @@ const ModelsCard = ({ model }) => {
           <p className="text-balance text-black">{model.description}</p>
           <div>
             <p className="text-3xl font-bold text-black">
-              $ {model.price.toFixed(2)}
+              ${model.price.toFixed(2)}
               <samp className="text-base text-gray-400">/month</samp>{" "}
             </p>
           </div>
